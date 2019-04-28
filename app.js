@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const handlebars = require('express-handlebars');
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars');
+const path = require('path'); // Path module.
 
 // Serve static files. 
 app.use(express.static(path.join(__dirname, './public')));
