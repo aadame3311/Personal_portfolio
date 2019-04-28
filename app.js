@@ -59,11 +59,7 @@ app.get('/', (req, res) => {
                 major: "Computer Science",
                 gpa: "GPA: 3.27",
             },
-            {
-                school: "Sharyland Highschool",
-                degree: "Highschool degree",
-                timeline: "August 2010 - May 2014",
-            },
+
             
         ],
         "Skills": {
