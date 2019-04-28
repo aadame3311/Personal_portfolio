@@ -9,7 +9,7 @@ app.set('view engine', 'handlebars');
 const path = require('path'); // Path module.
 
 // Serve static files. 
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './public/')));
 app.use(express.static(path.join(__dirname, './public/vendor')));
 
 
