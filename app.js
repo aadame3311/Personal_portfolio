@@ -69,7 +69,6 @@ app.get('/', (req, res) => {
                             "I also enjoy video games. As of most recently, I prefer to play more competitive games such as Rainbow Six, or Super Smash Bros. Aside from video games and music, I also enjoy TV Shows and manga. My favorite TV Series is Game of Thrones and my favorite manga of all time is One Piece.\n",
         "Awards": [
                 "1st place - UTRGV Engineering Week Innovation Challenge",
-                "President - ACM Student Chapter "
         ],
         "Projects": [
             {

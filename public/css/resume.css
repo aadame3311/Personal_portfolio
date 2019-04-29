@@ -83,6 +83,7 @@ h3 {
 p.lead {
   font-size: 1.15rem;
   font-weight: 400;
+  color: white;
 }
 
 .subheading {
@@ -222,7 +223,7 @@ section.resume-section .resume-item .resume-date {
 }
 
 a {
-  color: #403531;
+  color: #BF9E3B;
 }
 
 a:hover, a:focus, a:active {
