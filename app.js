@@ -65,8 +65,8 @@ app.get('/', (req, res) => {
         "Skills": {
             programming_languages: ["java", "python", "html5", "css3-alt", "js-square", "react", "node-js", "sass", "npm"],
         },
-        "Interests": "Apart from being pationate about the field of software engineering, I enjoy playing music. Music, as for most people, is a very big part of me. I enjoy playing guitar (acoustic) although I also tend to play electric guitar. \n"+
-                            "I also enjoy video games. As of most recently, I prefer to play more competitive games such as Rainbow Six, or Super Smash Bros. Aside from video games and music, I also enjoy TV Shows and manga. My favorite TV Series is Game of Thrones and my favorite manga of all time is One Piece.\n",
+        "Interests": "Apart from being passionate about software engineering, I enjoy playing music. Like most people, music is a very big part of my life. I primarily play acoustic guitar though I strum on an electric one every so often. If I’m not making music, I’m probably playing video games. Recently, I have been interested in more competitive games such as Rainbow Six and Super Smash Bros \n"+
+                            "Aside from video games and music, I also enjoy TV Shows and manga. My favorite TV Series is Game of Thrones and my favorite manga of all time is One Piece.\n",
         "Awards": [
                 "1st place - UTRGV Engineering Week Innovation Challenge",
         ],
