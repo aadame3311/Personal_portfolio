@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
+const Twitter = require('twitter');
+const fs = require("fs");
+const tk = fs.readFileSync("token_keys.json");
+const tokens = JSON.parse(tk);
 
 // Templating. 
 const handlebars = require('express-handlebars');
@@ -12,11 +16,18 @@ const path = require('path'); // Path module.
 app.use(express.static(path.join(__dirname, './public/')));
 app.use(express.static(path.join(__dirname, './public/vendor')));
 
+// Get twitter 
+var client = new Twitter({
+    consumer_key: tokens.twitter_consumer_key,
+    consumer_secret: tokens.twitter_consumer_secret,
+    access_token_key: tokens.twitter_access_token_key,
+    access_token_secret: tokens.twitter_access_token_secret,
+})
+
 
 
 
 app.get('/', (req, res) => {
-    
     const personal_information = {
         "About": {
             first_name: "Antonio",
@@ -86,9 +97,38 @@ app.get('/', (req, res) => {
 
         ]
     }
+    var params = {
+        screen_name: 'AntonioAdame3',
+        count: 4,
+        exclude_replies: true,
+    }
+    var tweetInfo = {"tweets": []};
+    var promise = new Promise(function(resolve, reject){
+        client.get('statuses/user_timeline', params, (error, tweets,response)=>{
+            if (!error) {
+                tweets.map((t,idx)=>{
+                    var tmp = {};
+                    tmp["text"] = t.text;
+                    tmp["created_at"] = t.created_at;
+                    tmp["screen_name"] = t.user.screen_name;
+                    tmp["profile_image"] = t.user.profile_image_url;
+                    tweetInfo.tweets.push(tmp);
+                    console.log(tweetInfo.tweets[0].profile_image);
+                });
+
+                resolve();
+            }
+        })
+    });
+
+    promise.then(function(success) {
+        res.render('index', ({
+            "personal_information": personal_information,
+            "tweet_info": tweetInfo
+        }));
+    })
 
 
-    res.render('index', personal_information);
 
 })
 app.get('/api', (req, res) => {
