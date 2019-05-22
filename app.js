@@ -1,10 +1,9 @@
+require('dotenv').config();
+
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 const Twitter = require('twitter');
-const fs = require("fs");
-const tk = fs.readFileSync("token_keys.json");
-const tokens = JSON.parse(tk);
 
 // Templating. 
 const handlebars = require('express-handlebars');
@@ -15,15 +14,13 @@ const path = require('path'); // Path module.
 // Serve static files. 
 app.use(express.static(path.join(__dirname, './public/')));
 app.use(express.static(path.join(__dirname, './public/vendor')));
-
 // Get twitter 
 var client = new Twitter({
-    consumer_key: tokens.twitter_consumer_key,
-    consumer_secret: tokens.twitter_consumer_secret,
-    access_token_key: tokens.twitter_access_token_key,
-    access_token_secret: tokens.twitter_access_token_secret,
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 })
-
 
 
 
@@ -113,10 +110,12 @@ app.get('/', (req, res) => {
                     tmp["screen_name"] = t.user.screen_name;
                     tmp["profile_image"] = t.user.profile_image_url;
                     tweetInfo.tweets.push(tmp);
-                    console.log(tweetInfo.tweets[0].profile_image);
                 });
 
                 resolve();
+            }
+            else {
+                console.log('error');
             }
         })
     });

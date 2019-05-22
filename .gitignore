@@ -1,6 +1,5 @@
 # tokens
-token_keys.json
-
+.env
 # Logs
 logs
 *.log
