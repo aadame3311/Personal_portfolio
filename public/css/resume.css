@@ -20,12 +20,12 @@ hr {
   margin: 18px 0;
 }
 #about{
-  background-size: auto;
 
   background: url('../img/bg1.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 #about::before {
   background-attachment: fixed;
