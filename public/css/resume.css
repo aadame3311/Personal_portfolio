@@ -20,12 +20,18 @@ hr {
   border-width: 0.5px 0;
   margin: 18px 0;
 }
-#about {
+#about{
   background: url('../img/bg1.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+#about::before {
+  background-attachment: fixed;
+  background: url('../img/bg1.png');
+
+
 }
 #education {
   background: url('../img/bg7.png');
